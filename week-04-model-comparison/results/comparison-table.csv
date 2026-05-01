@@ -1,0 +1,9 @@
+﻿input_text,model_1_sentiment_label,model_1_sentiment_score,model_2_zeroshot_label,model_2_zeroshot_score,model_3_ner_entities,model_4_groq_classification,notes,tested_at
+"Unauthorized login from IP 198.51.100.4 at 3:47 AM — multiple failed attempts
+preceded this",POSITIVE,0.7481,possible anomaly,0.9,{},Please go ahead and provide the alert so I can classify its severity.,,4/30/2026 10:49pm
+Routine firewall rule update completed on fw-01 during scheduled maintenance window,POSITIVE,0.7481,routine activity,1.0,{},"However, I don't see an alert provided. Please go ahead and give me the alert, and I'll classify it accordingly.",,4/30/2026 10:49pm
+Phishing email detected targeting finance@company.com — spoofed sender domain,POSITIVE,0.7481,possible anomaly,0.8,{},"I'm ready to assist; however, you didn't provide an alert to classify. Please provide the alert information, and I'll classify it according to the severity level you requested.",,4/30/2026 10:49pm
+"Multiple failed SSH authentication attempts from external IP — 47 attempts in 5
+minutes",POSITIVE,0.7481,possible anomaly,0.9,"{""entity_group"":""MISC"",""score"":0.99433726,""word"":""SS"",""start"":16,""end"":18}","Please go ahead and provide the alert, and I'll classify it accordingly.",,4/30/2026 10:49pm
+"System resource utilization normal across all monitored hosts — no anomalies
+detected",POSITIVE,0.7481,routine activity,1.0,{},"I need an alert to classify. Please provide the alert details, and I'll assign a severity level accordingly.",,4/30/2026 10:49pm

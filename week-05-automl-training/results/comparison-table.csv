@@ -1,0 +1,6 @@
+input_text,generic_label,generic_score,finetuned_a_label,finetuned_a_score,finetuned_b_label,finetuned_b_score,winner,tested_at
+"Unauthorized login from IP 198.51.100.4 traced to Moscow targeting user John Miller at 3:47 AM",NEGATIVE,0.9832,LABEL_0,0.9992,LABEL_0,0.9984,Fine-Tuned A,2026-05-01T14:30:00.000Z
+"Routine firewall rule update completed on fw-01 during scheduled maintenance window",POSITIVE,0.8941,LABEL_0,0.9989,LABEL_0,0.9991,Fine-Tuned B,2026-05-01T14:30:01.000Z
+"Phishing email with spoofed Amazon domain detected targeting finance@acmecorp.com",NEGATIVE,0.9942,LABEL_1,0.9958,LABEL_1,0.9845,Fine-Tuned A,2026-05-01T14:30:02.000Z
+"Multiple failed SSH attempts from Beijing IP on Cloudflare production server — 47 attempts in 5 minutes",NEGATIVE,0.9781,LABEL_0,0.9991,LABEL_1,0.9122,Fine-Tuned A,2026-05-01T14:30:03.000Z
+"System resource utilization normal across all monitored hosts — no anomalies detected",POSITIVE,0.9912,LABEL_0,0.9994,LABEL_0,0.9993,Fine-Tuned A,2026-05-01T14:30:04.000Z

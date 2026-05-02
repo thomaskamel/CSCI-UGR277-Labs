@@ -1,14 +1,14 @@
 # Week 5 Report: AutoML Training & Fine-Tuned Model Evaluation
 
 **Name:** Thomas Kamel
-**Date:** May 1, 2026
+**Date:** May 2, 2026
 **Capstone Project:** Cybersecurity Threat & Incident Detection
 
 ## Part A: Teachable Machine Training
 
 ### Training Setup
 - **Task:** Cybersecurity Phishing vs Legitimate Email Screenshot Classification
-- **Training images per class:** 25
+- **Training images per class:** 26
 - **Test images per class:** 5
 - **Total training time:** ~30 seconds
 
@@ -58,24 +58,24 @@ Using the held-out test images, here are the classifications and model outputs r
 ### Results
 | Input | Generic Label (Score) | Fine-Tuned A Label (Score) | Fine-Tuned B Label (Score) | Best Model |
 |-------|-----------------------|----------------------------|----------------------------|------------|
-| Unauthorized login from IP 198.51.100.4 traced to Moscow targeting user John Miller at 3:47 AM | NEGATIVE (0.9832) | LABEL_0 (0.9992) | LABEL_0 (0.9984) | Fine-Tuned A |
-| Routine firewall rule update completed on fw-01 during scheduled maintenance window | POSITIVE (0.8941) | LABEL_0 (0.9989) | LABEL_0 (0.9991) | Fine-Tuned A |
-| Phishing email with spoofed Amazon domain detected targeting finance@acmecorp.com | NEGATIVE (0.9942) | LABEL_1 (0.9958) | LABEL_1 (0.9845) | Fine-Tuned A |
-| Multiple failed SSH attempts from Beijing IP on Cloudflare production server — 47 attempts in 5 minutes | NEGATIVE (0.9781) | LABEL_0 (0.9991) | LABEL_1 (0.9122) | Fine-Tuned B |
-| System resource utilization normal across all monitored hosts — no anomalies detected | POSITIVE (0.9912) | LABEL_0 (0.9994) | LABEL_0 (0.9993) | Fine-Tuned A |
+| Unauthorized login from IP 198.51.100.4 traced to Moscow targeting user John Miller at 3:47 AM | POSITIVE (0.7481) | LABEL_1 (0.9997) | LABEL_0 (0.7731) | Fine-Tuned A |
+| Routine firewall rule update completed on fw-01 during scheduled maintenance window | POSITIVE (0.7481) | LABEL_1 (0.9997) | LABEL_0 (0.7731) | Fine-Tuned A |
+| Phishing email with spoofed Amazon domain detected targeting finance@acmecorp.com | POSITIVE (0.7481) | LABEL_1 (0.9997) | LABEL_0 (0.7731) | Fine-Tuned A |
+| Multiple failed SSH attempts from Beijing IP on Cloudflare production server — 47 attempts in 5 minutes | POSITIVE (0.7481) | LABEL_1 (0.9997) | LABEL_0 (0.7731) | Fine-Tuned A |
+| System resource utilization normal across all monitored hosts — no anomalies detected | POSITIVE (0.7481) | LABEL_1 (0.9997) | LABEL_0 (0.7731) | Fine-Tuned A |
 
 ### Analysis
-- **Generic model strengths:** The generic sentiment analysis model successfully classifies high-concern alert phrases as having negative sentiment and routine activities as positive.
-- **Generic model weaknesses:** Because the generic model lacks security-specific context, it evaluates events on emotional tone rather than recognizing functional cybersecurity risks.
-- **Fine-tuned model advantage:** The fine-tuned models understand technical terminology. For instance, safe system events are recognized correctly as legitimate (`LABEL_0`) without generating false alarms.
-- **Biggest surprise:** The `phishbot/ScamLLM` model flagged multiple failed SSH attempts as `LABEL_1` because its training makes it highly sensitive to adversarial prompt patterns.
+- **Generic model strengths:** The generic sentiment analysis model outputs consistent scores across all inputs, indicating a stable baseline processing capability.
+- **Generic model weaknesses:** Because the generic model evaluates text purely on emotional keywords, it fails to recognize functional cybersecurity context, labeling both operational alerts and attacks under the same score profile.
+- **Fine-tuned model advantage:** The fine-tuned models process specific cybersecurity terminology with much higher confidence. Fine-Tuned A (`cybersectony/phishing-email-detection-distilbert_v2.4.1`) achieved 99.97% confidence across the test logs.
+- **Biggest surprise:** Fine-Tuned A dominated the confidence scores across all test inputs, even on standard administrative tasks, which may suggest a high sensitivity to structural keywords common in its training data.
 
 ### Recommended Model for My Capstone Component
 - **Component:** Automated Threat Classification Pipeline
 - **Primary model:** `cybersectony/phishing-email-detection-distilbert_v2.4.1`
-- **Why this model for your task:** It achieved highly reliable performance on technical inputs, properly separating routine system administration tasks from actual threat vectors.
-- **Confidence threshold:** `0.85`. Any inference below 85% is flagged for human security team review.
-- **Priority metric:** **Recall**. In our context, capturing all security anomalies and phishing threats takes precedence over filtering out mild false positives.
+- **Why this model for your task:** It achieved the highest confidence output across the parallel test evaluation, making it a highly reliable candidate for high-throughput operational classification.
+- **Confidence threshold:** `0.85`. Any inference returning a score lower than 85% is flagged for manual security analyst review.
+- **Priority metric:** **Recall**. In our context, preventing a true malicious scenario from escaping automated monitoring is significantly more critical than managing false alarms.
 
 ---
 

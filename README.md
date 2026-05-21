@@ -24,7 +24,7 @@ This project solves that by connecting three components:
 3. Case management and dashboard review
 
 ## Architecture
-![Architecture Diagram](architecture.PNG)
+![Architecture Diagram](architecture.png)
 
 ## Components
 

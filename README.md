@@ -22,7 +22,7 @@ This project solves that by connecting three components:
 
 ## Architecture
 
-![Architecture Diagram](architecture.pg)
+![Architecture Diagram](architecture.png)
 
 ## Components
 
